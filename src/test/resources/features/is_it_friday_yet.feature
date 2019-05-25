@@ -4,5 +4,10 @@ Feature: Is it Friday yet?
 
   Scenario: Sunday isn't Friday
     Given today is Sunday
-    When I ask whther it's Friday yet
-    Then I should be told "Nope"
+    When I ask whether it's Friday yet
+    Then I should be told no
+    
+  Scenario: Today is Friday
+    Given today is Friday
+    When I ask whether it's Friday yet
+    Then I should be told yes

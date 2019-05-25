@@ -5,9 +5,10 @@ import java.util.Map;
 
 public class NumberToWords {
 
-    public static void numberToWords(int num) {
+    public static String numberToWords(int num) {
         if (num < 0) {
             System.out.println("Invalid Value");
+            return "Invalid Value";
         } else {
             Map<Integer, String> map = new HashMap<Integer, String>();
             map.put(0, "Zero");
@@ -40,6 +41,7 @@ public class NumberToWords {
                 }
             }
             System.out.println(ans.trim());
+            return ans.trim();
         }
     }
 
