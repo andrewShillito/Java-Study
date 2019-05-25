@@ -1,13 +1,18 @@
-package main;
+package Main;
 
 import static org.junit.Assert.assertTrue;
 
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 /**
- * Unit test for simple main.
+ * Unit test for simple Main.
  */
-public class mainTest
+@RunWith(Cucumber.class)
+@CucumberOptions()
+public class MainTest
 {
     /**
      * Rigorous Test :-)
@@ -17,4 +22,5 @@ public class mainTest
     {
         assertTrue( true );
     }
+
 }
