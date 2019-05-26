@@ -13,9 +13,10 @@ public class StepDefs {
     private String stringArgument;
     private int intAnswer;
     private int intArgument;
+    private boolean boolAnswer;
 
     @Given("^today is ([^\"]*)$")
-    public void today_is(String arg) {
+    public void today_is_sunday(String arg) {
         today = arg;
     }
 
@@ -34,32 +35,51 @@ public class StepDefs {
      * Run Number to Words
      * @param arg
      */
-    @Given("^I run numberToWords with argument ([^\"]*)$")
+    @When("^I run numberToWords with argument ([^\"]*)$")
     public void i_run_numberToWords_with_argument(int arg) {
         intArgument = arg;
         stringAnswer = NumberToWords.numberToWords(intArgument);
     }
 
     @Then("^I expect the answer to be string ([^\"]*)$")
-    public void i_expect_the_answer_to_be(String expectedAnswer) {
+    public void i_expect_the_answer_to_be_string(String expectedAnswer) {
         assertEquals(stringAnswer, expectedAnswer);
     }
 
-    @Given("^I run getDigitCount with argument ([^\"]*)$")
+    @When("^I run getDigitCount with argument ([^\"]*)$")
     public void i_run_getDigitCount_with_argument(int arg) {
         intArgument = arg;
         intAnswer = NumberToWords.getDigitCount(intArgument);
     }
 
     @Then("^I expect the answer to be int ([^\"]*)$")
-    public void i_expect_the_answer_to_be(int expectedAnswer) {
+    public void i_expect_the_answer_to_be_int(int expectedAnswer) {
         assertEquals(intAnswer, expectedAnswer);
     }
 
-    @Given("^I run reverse with argument ([^\"]*)$")
+    @When("^I run reverse with argument ([^\"]*)$")
     public void i_run_reverse_with_argument(int arg) {
         intArgument = arg;
         intAnswer = NumberToWords.reverse(intArgument);
+    }
+
+    /**
+     * Flour Pack Problem
+     *
+     */
+    @When("I run canPack with args {int} {int} {int}")
+    public void i_run_canPack_with_args(int x, int y, int z) {
+        boolAnswer = FlourPacker.canPack(x, y, z);
+    }
+
+    @Then("^I expect the answer to be true$")
+    public void i_expect_the_answer_to_be_true() {
+        assertEquals(true, boolAnswer);
+    }
+
+    @Then("^I expect the answer to be false$")
+    public void i_expect_the_answer_to_be_false() {
+        assertEquals(false, boolAnswer);
     }
 
 }

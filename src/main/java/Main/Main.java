@@ -6,7 +6,8 @@ package Main;
 public class Main
 {
     public static void main( String[] args ) {
-        testNumberToWords();
+//        testNumberToWords();
+
     }
 
     public static void testNumberToWords() {
