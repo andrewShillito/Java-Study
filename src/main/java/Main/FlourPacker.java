@@ -16,10 +16,10 @@ public class FlourPacker {
                 int bigWeight = 5*i;
                 if (bigWeight == goal) {
                     return true;
-                } else if ((goal - bigWeight) <= smallCount) {
-                    return true;
                 } else if (bigWeight > goal) {
                     return false;
+                } else if ((goal - bigWeight) <= smallCount) {
+                    return true;
                 }
             }
         }
