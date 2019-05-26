@@ -92,6 +92,16 @@ public class StepDefs {
         intAnswer = LargestPrime.getLargestPrime(intArgument);
     }
 
+    /**
+     * DiagonalStar
+     */
+
+    @When("^I run printSquareStar with arg ([^\"]*)$")
+    public void i_run_printSquareStar_with_arg(int arg) {
+        intArgument = arg;
+        stringAnswer = DiagonalStar.printSquareStar(arg);
+    }
+
 }
 
 class IsItFriday {
