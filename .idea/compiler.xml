@@ -9,5 +9,8 @@
         <module name="javaMasterclass" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="javaMasterclass" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
