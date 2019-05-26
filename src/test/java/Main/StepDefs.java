@@ -43,7 +43,7 @@ public class StepDefs {
 
     @Then("^I expect the answer to be string ([^\"]*)$")
     public void i_expect_the_answer_to_be_string(String expectedAnswer) {
-        assertEquals(stringAnswer, expectedAnswer);
+        assertEquals(expectedAnswer, stringAnswer);
     }
 
     @When("^I run getDigitCount with argument ([^\"]*)$")
@@ -54,7 +54,7 @@ public class StepDefs {
 
     @Then("^I expect the answer to be int ([^\"]*)$")
     public void i_expect_the_answer_to_be_int(int expectedAnswer) {
-        assertEquals(intAnswer, expectedAnswer);
+        assertEquals(expectedAnswer, intAnswer);
     }
 
     @When("^I run reverse with argument ([^\"]*)$")
@@ -80,6 +80,16 @@ public class StepDefs {
     @Then("^I expect the answer to be false$")
     public void i_expect_the_answer_to_be_false() {
         assertEquals(false, boolAnswer);
+    }
+
+    /**
+     * LargestPrime (factor)
+     */
+
+    @When("^I run getLargestPrime with arg ([^\"]*)$")
+    public void i_run_getLargestPrime_with_arg(int arg) {
+        intArgument = arg;
+        intAnswer = LargestPrime.getLargestPrime(intArgument);
     }
 
 }
