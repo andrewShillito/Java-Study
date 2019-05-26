@@ -38,6 +38,12 @@
       <version>${cucumber.version}</version>
       <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.8.1</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -55,7 +61,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
+          <version>3.8.1</version>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
@@ -82,14 +88,6 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
-        <!--<plugin>-->
-          <!--<artifactId>maven-compiler</artifactId>-->
-          <!--<groupId>org.apache.maven.plugins</groupId>-->
-          <!--<configuration>-->
-            <!--<source>1.8</source>-->
-            <!--<target>1.8</target>-->
-          <!--</configuration>-->
-        <!--</plugin>-->
       </plugins>
     </pluginManagement>
   </build>
