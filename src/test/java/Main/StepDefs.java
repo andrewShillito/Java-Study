@@ -1,5 +1,6 @@
 package Main;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -13,7 +14,11 @@ public class StepDefs {
     private String stringArgument;
     private int intAnswer;
     private int intArgument;
+    private double doubleAnswer;
+    private double doubleArgument;
     private boolean boolAnswer;
+
+    private SimpleCalculator simpleCalculator;
 
     @Given("^today is ([^\"]*)$")
     public void today_is_sunday(String arg) {
@@ -115,6 +120,52 @@ public class StepDefs {
     @When("^I run getBucketCount with 2 args ([^\"]*) ([^\"]*)$")
     public void i_run_getBucketCount_with_2_args(double area, double areaPerBucket) {
         intAnswer = PaintJob.getBucketCount(area, areaPerBucket);
+    }
+
+    @Given("^I initialize simpleCalculator$")
+    public void i_intialize_simpleCalculator() {
+        this.simpleCalculator = new SimpleCalculator();
+    }
+
+    @And("^I set simpleCalculator numbers to ([^\"]*) ([^\"]*)$")
+    public void i_set_simpleCalculator_numbers_to(double firstNum, double secondNum) {
+        this.simpleCalculator.setFirstNumber(firstNum);
+        this.simpleCalculator.setSecondNumber(secondNum);
+    }
+
+    @When("^I run getAdditionResult$")
+    public void i_run_getAdditionResult() {
+        this.doubleAnswer = this.simpleCalculator.getAdditionResult();
+    }
+
+    @Then("^I expect the answer to be double ([^\"]*)$")
+    public void i_expect_the_answer_to_be_double(double expectedAnswer) {
+        assertEquals(expectedAnswer, this.doubleAnswer, .0001);
+    }
+
+    @When("^I run getSubtractionResult$")
+    public void i_run_getSubtractionResult() {
+        this.doubleAnswer = this.simpleCalculator.getSubtractionResult();
+    }
+
+    @When("^I run getMultiplicationResult$")
+    public void i_run_getMultiplicationResult() {
+        this.doubleAnswer = this.simpleCalculator.getMultiplicationResult();
+    }
+
+    @When("^I run getDivisionResult$")
+    public void i_run_getDivisionResult() {
+        this.doubleAnswer = this.simpleCalculator.getDivisionResult();
+    }
+
+    @Then("^I expect getFirstNumber to return ([^\"]*)$")
+    public void i_expect_getFirstNumber_to_return(double expectedAnswer) {
+        assertEquals(expectedAnswer, this.doubleAnswer, .0001);
+    }
+
+    @Then("^I expect getSecondNumber to return ([^\"]*)$")
+    public void i_expect_getSecondNumber_to_return(double expectedAnswer) {
+        assertEquals(expectedAnswer, this.doubleAnswer, .0001);
     }
 
 }
