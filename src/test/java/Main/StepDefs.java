@@ -102,6 +102,21 @@ public class StepDefs {
         stringAnswer = DiagonalStar.printSquareStar(arg);
     }
 
+    @When("^I run getBucketCount with 4 args ([^\"]*) ([^\"]*) ([^\"]*) ([^\"]*)$")
+    public void i_run_getBucketCount_with_4_args(double width, double height, double areaPerBucket, int extraBuckets) {
+        intAnswer = PaintJob.getBucketCount(width, height, areaPerBucket, extraBuckets);
+    }
+
+    @When("^I run getBucketCount with 3 args ([^\"]*) ([^\"]*) ([^\"]*)$")
+    public void i_run_getBucketCount_with_3_args(double width, double height, double areaPerBucket) {
+        intAnswer = PaintJob.getBucketCount(width, height, areaPerBucket);
+    }
+
+    @When("^I run getBucketCount with 2 args ([^\"]*) ([^\"]*)$")
+    public void i_run_getBucketCount_with_2_args(double area, double areaPerBucket) {
+        intAnswer = PaintJob.getBucketCount(area, areaPerBucket);
+    }
+
 }
 
 class IsItFriday {
