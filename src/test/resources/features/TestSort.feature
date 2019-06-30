@@ -30,4 +30,19 @@ Feature: Test sorting functions in class Main.Sort
 
     When I run testMergeSort String with length 10
     Then I expect the String to be sorted
+
+    # sorting String arrays
+    When I run testMergeSort String Array
+    Then I expect the String Array to be sorted
+
+    When I run testMergeSort String Array
+    Then I expect the String Array to be sorted
+
+    When I run testMergeSort String Array with length 10
+    Then I expect the String Array to be sorted
+
+    When I run testMergeSort String Array with length 10
+    Then I expect the String Array to be sorted
+
+
     

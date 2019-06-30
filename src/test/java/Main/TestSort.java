@@ -9,8 +9,12 @@ public class TestSort {
 
     private int[] expectedResult;
     private int[] actualResult;
+
     private String expectedString;
     private String actualString;
+
+    private String[] expectedStringArray;
+    private String[] actualStringArray;
 
     private final String stringAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -68,7 +72,7 @@ public class TestSort {
     public String generateString(int length) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
-            int rand = (int) Math.random()*52;
+            int rand = (int) (Math.random()*52);
             sb.append(stringAlphabet.charAt(rand));
         }
         return sb.toString();
@@ -77,5 +81,35 @@ public class TestSort {
     @Then("^I expect the String to be sorted$")
     public void i_expect_the_String_to_be_sorted(){
         assertEquals(expectedString, actualString);
+    }
+
+    public String[] generateStringArray() {
+        return generateStringArray(5); // 5 is default length
+    }
+
+    public String[] generateStringArray(int length) {
+        String[] arr = new String[length];
+        for (int i = 0; i < length; i++) {
+            arr[i] = generateString(); // will be equal length strings (5 chars)
+        }
+        return arr;
+    }
+
+    @When("^I run testMergeSort String Array$")
+    public void i_run_test_merge_sort_string_array() {
+        i_run_test_merge_sort_string_array_with_length(5); // 5 is default length
+    }
+
+    @When("^I run testMergeSort String Array with length ([^\"]*)$")
+    public void i_run_test_merge_sort_string_array_with_length(int length) {
+        String[] arr = generateStringArray(length);
+        expectedStringArray = Arrays.copyOfRange(arr, 0, arr.length);
+        Arrays.sort(expectedStringArray);
+        actualStringArray = Sort.mergeSort(Arrays.copyOfRange(arr, 0, arr.length));
+    }
+
+    @Then("^I expect the String Array to be sorted$")
+    public void i_expect_the_string_array_to_be_sorted() {
+        assertArrayEquals(expectedStringArray, actualStringArray);
     }
 }
