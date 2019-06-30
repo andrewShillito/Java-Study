@@ -3,7 +3,9 @@ Feature: Test sorting functions in class Main.Sort
   # Enter feature description here
 
   Scenario: Test Merge Sort Function
-    # for now just randomized arr generation
+    # for now just randomized arr/string generation
+
+    # sorting int arrays
     When I run testMergeSort int
     Then I expect the result to be sorted
 
@@ -15,4 +17,17 @@ Feature: Test sorting functions in class Main.Sort
 
     When I run testMergeSort int with length 10
     Then I expect the result to be sorted
+
+    # sorting Strings
+    When I run testMergeSort String
+    Then I expect the String to be sorted
+
+    When I run testMergeSort String
+    Then I expect the String to be sorted
+
+    When I run testMergeSort String with length 10
+    Then I expect the String to be sorted
+
+    When I run testMergeSort String with length 10
+    Then I expect the String to be sorted
     
