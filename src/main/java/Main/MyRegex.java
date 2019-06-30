@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class MyRegex {
-    private final String pattern = "^([0]*|[0-2]?[0-5|(?<!2)6-9]?[0-5|(?<![2-9]\\D)6-9])\\.([0]*|[0-2]?[0-5|(?<!2)6-9]?[0-5|(?<![2-9]\\D)6-9])\\.([0]*|[0-2]?[0-5|(?<!2)6-9]?[0-5|(?<![2-9]\\D)6-9])\\.([0]*|[0-2]?[0-5|(?<!2)6-9]?[0-5|(?<![2-9]\\D)6-9])$";
+    private final String pattern = "^([0-2]?[0-5|(?<!2)6-9]?[0-5|(?<![2-9]\\D)6-9])\\.([0-2]?[0-5|(?<!2)6-9]?[0-5|(?<![2-9]\\D)6-9])\\.([0-2]?[0-5|(?<!2)6-9]?[0-5|(?<![2-9]\\D)6-9])\\.([0-2]?[0-5|(?<!2)6-9]?[0-5|(?<![2-9]\\D)6-9])$";
     private final String stringAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     private final String[] testCases = {
             "000.12.12.034",
