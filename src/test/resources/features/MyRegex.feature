@@ -6,6 +6,3 @@ Feature: Test MyRegex IP Validation
 
     When I run myRegex testCases
     Then I expect boolean array to be correct
-
-    When I run myRegex testCases
-    Then I expect boolean array to be correct
